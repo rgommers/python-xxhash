@@ -9,8 +9,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-22.04]
-        archs: ["x86_64, i686", "aarch64", "ppc64le", "s390x"]
-        build: ["manylinux", "musllinux"]
+        archs: ["x86_64"]
+        build: ["manylinux"]
         include:
           - os: windows-2019
             archs: "AMD64"
@@ -19,7 +19,7 @@ jobs:
           - os: windows-2019
             archs: "ARM64"
           - os: macos-13
-            archs: "x86_64, arm64"
+            archs: "arm64"
 
     steps:
       - name: Disable git autocrlf
