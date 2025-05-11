@@ -37,10 +37,12 @@ jobs:
         if: runner.os == 'Linux'
 
       - name: Enable PyPy and free-threading
+        shell: bash
         run: |
           echo "CIBW_ENABLE=pypy cpython-freethreading" >> "$GITHUB_ENV"
 
       - name: Enable CPython pre-release wheels
+        shell: bash
         if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
         run: |
             echo "CIBW_ENABLE=$CIBW_ENABLE cpython-prerelease" >> "$GITHUB_ENV"
